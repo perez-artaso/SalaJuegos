@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row center" *ngIf="!ganar">
+    <div *ngFor="let tarjeta of tableroIncognito; let i = index;">
+      <div>
+        <img class="col s4" [src]="tableroIncognito[i].url" (click)="darVuelta(i, img)" #img>
+      </div>
+    </div>
+  </div>
+  <div class="center" *ngIf="ganar">
+    <div class="divider"></div>
+    <p class="section green" style="font-size: 50px;">¡Felicidades! Tu tiempo: {{timer}} segundos.</p>
+    <button (click)="reset()" class="btn orange" style="font-size: 25px;">Volver A Jugar</button>
+    <div class="divider"></div>
+  </div>
+  <div class="center"><i class="material-icons">timer</i>{{timer}}</div>
+
+</div>

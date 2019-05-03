@@ -1,0 +1,44 @@
+
+  <div class="divider">
+
+  </div>
+  <div class="section">
+    <div class="center">
+        <img [src]="incognito" alt="incognito" *ngIf="!ganaste && !perdiste && !empate && !tiempoFuera">
+        <img [src]="piedra" alt="piedra" *ngIf="opcionDecidida === 1 && tiempoFuera || opcionDecidida === 1 && (ganaste || empate || perdiste)">
+        <img [src]="papel" alt="papel" *ngIf="opcionDecidida === 2 && tiempoFuera || opcionDecidida === 2 && (ganaste || empate || perdiste)">
+        <img [src]="tijera" alt="tijera" *ngIf="opcionDecidida === 3 && tiempoFuera || opcionDecidida === 3 && (ganaste || empate || perdiste)">
+    </div>
+  </div>
+  <div class="divider">
+
+  </div>
+  <div class="center">
+
+    {{timer}}
+
+  </div>
+
+    <div class="section center">
+      <button (click)="evaluar($event)"><img [src]="piedra" alt="piedra" id="1"></button>
+      <button (click)="evaluar($event)"><img [src]="papel" alt="papel" id="2"></button>
+      <button (click)="evaluar($event)"><img [src]="tijera" alt="tijera" id="3"></button>
+    </div>
+
+    <div class="divider"></div>
+    <div class="center container">
+      <div class="section green" *ngIf="ganaste">
+        ¡Ganaste!
+      </div>
+      <div class="section red" *ngIf="perdiste">
+        ¡Perdiste!
+      </div>
+      <div class="section yellow" *ngIf="empate">
+          ¡Empate!
+        </div>
+      <div class="section red" *ngIf="tiempoFuera">
+        ¡Tiempo Fuera!
+      </div>
+
+    <button (click)="reset()" class="btn center">Volver A Jugar</button>
+  </div>

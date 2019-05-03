@@ -1,0 +1,29 @@
+<div class="divider"></div>
+<div class="section center">
+  <img *ngFor="let imagen of arrayImgNumeros" [src]="imagen" class="tiny">
+</div>
+<div class="divider"></div>
+<div class="center">
+    <i class="tiny material-icons">timer</i> {{timer}}
+</div>
+<div class="divider"></div>
+<div class="container">
+    <div class="input-field">
+        <input type="text" #respuesta id="respuesta">
+        <label for="respuesta">Respuesta</label>
+        <div class="container center">
+            <button (click)="evaluar(respuesta)" class="center btn">Responder</button>
+            <button (click)="nuevoDesafio()" class="btn yellow">Nuevo Desafío</button>
+        </div>
+
+      </div>
+      <p *ngIf="correcto" class="green">
+        ¡Correcto!
+      </p>
+      <p *ngIf="incorrecto" class="red">
+        Incorrecto, la respuesta es {{resultado}}
+      </p>
+      <p *ngIf="tiempoFuera" class="red">
+        ¡Tiempo Fuera! La respuesta era {{resultado}}
+      </p>
+</div>

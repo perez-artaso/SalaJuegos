@@ -1,0 +1,18 @@
+<div class="section center">
+    <img [src]="incognito" *ngIf="!correcto">
+    <div *ngIf="correcto" style="font-size: 100px;">
+      {{numeroAdivinar}}
+    </div>
+  </div>
+  <div class="container">
+    <div class="input-field center">
+      <label for="respuesta">Respuesta</label>
+      <input type="text" #respuesta id="respuesta">
+      <button (click)="evaluar(respuesta)" class="btn">Responder</button>
+      <button (click)="asignarNumero()" class="btn orange darken-2">Nuevo Número</button>
+    </div>
+    <div *ngIf="correcto" class="container center" style="margin-top: 100px;">
+      <i class="large material-icons green">check</i>
+    </div>
+</div>
+

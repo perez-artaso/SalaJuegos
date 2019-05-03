@@ -1,0 +1,16 @@
+<div class="row">
+    <form>
+      <h2 class="center">Registrarse</h2>
+      <div class="form-field">
+        <label for="usr">Usuario</label>
+        <input type="text" id="usr" #usr>
+      </div>
+      <div class="form-field">
+          <label for="pass">Contraseña</label>
+          <input type="password" id="pass" #pass>
+      </div>
+      <div class="center">
+          <button (click)="registrarse(usr.value, pass.value)" class="center btn">Registrarse</button>
+      </div>
+    </form>
+  </div>

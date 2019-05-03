@@ -1,0 +1,50 @@
+<div class="container">
+  <ul id="slide-out" class="sidenav sidenav-fixed red lighten-2">
+    <div class="center">
+      <h4>Sala De Juegos</h4>
+      <br>
+      <img src='../assets/images/dados.jpg' class="responsive circle" style="width: 120px; height: 105px; ">
+    </div>
+    <br>
+    <div class="divider black"></div>
+    <li><a (click)="asignarTitulo(anagrama)" routerLink="/anagrama" #anagrama>Anagrama</a></li>
+    <li><a (click)="asignarTitulo(ppot)" routerLink="/ppot" #ppot>Piedra, Papel o Tijera</a></li>
+    <li><a (click)="asignarTitulo(adivina)" routerLink="/adivina" #adivina>Adivina El Numero</a></li>
+    <li><a (click)="asignarTitulo(calculo)" routerLink="/calculo" #calculo>Cálculo</a></li>
+    <li><a (click)="asignarTitulo(memotest)" routerLink="/memotest" #memotest>Memotest</a></li>
+    <div class="divider black"></div>
+    <div *ngIf="auth.isLogged()">
+        <li><a (click)="auth.logout()" href="#">Logout</a></li>
+    </div>
+    <div *ngIf="!auth.isLogged()">
+        <li><a routerLink="/login">Login</a></li>
+        <li><a routerLink="/registro">Registrarse</a></li>
+    </div>
+    <div class="divider black"></div>
+
+  </ul>
+</div>
+<main>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">{{titulo}}</a>
+          <ul>
+            <li>
+              <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+</main>
+<footer class="page-footer">
+  <div class="container">
+    <app-puntajes [score]="auth.senal()" [detector]="auth.isLogged()"></app-puntajes>
+  </div>
+  <div class="footer-copyright"></div>
+</footer>
+
+
+
